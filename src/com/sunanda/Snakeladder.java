@@ -7,9 +7,11 @@ public class Snakeladder {
         int player=1;
         int position;
         int position1=0;
+        int diceRollCount=0;
         while (position1<100) {
             int randomCheck = (int) Math.floor(Math.random() + 1) % 6;
             System.out.println("Random Dice number is :- " + randomCheck);
+            diceRollCount++;
             int place = (int) Math.floor(Math.random()) % 3;
             System.out.println("Place is :- " + place);
             if (place == 1)
