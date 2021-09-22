@@ -14,7 +14,10 @@ public class Snakeladder {
             System.out.println("Place is :- " + place);
             if (place == 1)
             {
-                position1=position1+randomCheck;
+                if(position1 + randomCheck<=100)
+                {
+                    position1=position1+randomCheck;
+                }
             }
             if (place == 2)
             {
