@@ -4,11 +4,13 @@ public class Snakeladder {
     public static void main(String[] args)
     {
         System.out.println("Welcome to snake ladder game");
-        int player=1;
+        int player=0;
         int position;
         int position1=0;
+        int[] playerPosition=new int[2];
         int diceRollCount=0;
-        while (position1<100) {
+        while (playerPosition[player]<100)
+        {
             int randomCheck = (int) Math.floor(Math.random() + 1) % 6;
             System.out.println("Random Dice number is :- " + randomCheck);
             diceRollCount++;
@@ -16,24 +18,36 @@ public class Snakeladder {
             System.out.println("Place is :- " + place);
             if (place == 1)
             {
-                if(position1 + randomCheck<=100)
+                if(playerPosition[player] + randomCheck<=100)
                 {
-                    position1=position1+randomCheck;
+                    playerPosition[player]=playerPosition[player]+randomCheck;
                 }
             }
             if (place == 2)
             {
-               position1=position1-randomCheck;
-               if(position1<0)
+                playerPosition[player]=playerPosition[player]-randomCheck;
+               if(playerPosition[player]<0)
                {
-                   position1=0;
+                   playerPosition[player]=0;
                }
             }
             else
             {
-                position1=position1+0;
+                System.out.println("Player"+player+"Position"+playerPosition[player]);
             }
-            System.out.println("Player win with the position"+position1);
+            if (place==0||place==2)
+            {
+                if (player == 0)
+                {
+                    player =1;
+                }
+                else
+                {
+                    player =0;
+                }
+            }
+            System.out.println("The winner of snake and ladder is player"+player);
+            System.out.println("The number of times dice roll is"+diceRollCount);
         }
     }
 }
